@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="first"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
+  <ion-toolbar>
+    <ion-title>
+      Лабораторна робота №1
+    </ion-title>
+  </ion-toolbar>
+ 
+  <ion-toolbar>
+    <ion-title>
+      Виконала Тарасюк Д.О. КН-32
+    </ion-title>
+ </ion-toolbar>
+ 
+ <ion-toolbar>
+  <ion-title>
+    Варіант 4
+  </ion-title>
+ </ion-toolbar> 
+ 
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання №2</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>На заданому проміжку чисел [a,b] знайти суму всіх, які кратні 17 та при діленні на 4 дають в
+        остачі 2.</p>
+      <ion-item>
+        <ion-label position="stacked">Перше число</ion-label>
+        <ion-input type="number" id="a" placeholder="1" [(ngModel)]="Inputa"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Друге число</ion-label>
+        <ion-input type="number" id="b" placeholder="2" [(ngModel)]="Inputb"></ion-input>
+      </ion-item>
+      
+      <ion-button expand="block" (click)="num(Inputa, Inputb)">Розрахунок</ion-button>
+      
+      <ion-item>
+        <p>Результат: {{d}}</p>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Лабораторна робота №1</ion-title>
+  </ion-toolbar>
+</ion-footer>

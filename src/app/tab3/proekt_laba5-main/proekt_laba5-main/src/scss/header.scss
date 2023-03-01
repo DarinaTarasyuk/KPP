@@ -1,0 +1,293 @@
+@import 'mixin';
+header
+{
+    height: 700px;
+    // Для екранів менших за 1220px збільшуємо висоту заголовку
+     @media all and (max-width: 1220px)
+      {
+        height: 1300px;
+ }
+  // Для екранів менших за 556px зменшуємо висоту заголовку
+     @media all and (max-width: 576px)
+      {
+        height: 1000px;
+ }
+//  І ще раз зменшуємо
+  @media all and (max-width:376px)
+  {
+    height: 600px;
+  }
+}
+// Перший рядок з лого та меню
+.header_logo_menu
+{
+    @include flex();
+    height: 70px;
+    // Для екранів менших за 992px збільшуємо висоту 
+     @media all and (max-width: 992px)
+      {
+        height: 200px;
+      }
+}
+// Логотип
+.logo
+{
+    font-size: 36px;
+    font-weight: bold;
+   font-family: 'Cormorant Infant';
+//  Кожне зі слов фарбуємо в окремий колір
+   span:nth-child(2)
+   {
+    color:$orange;
+   }
+   span:nth-child(3)
+   {
+    color: $red;
+   }
+}
+// Меню
+.main-menu
+{
+     @include flex();
+    //  Посилання у меню
+     a
+     {
+        font-family: 'Noto sans';
+        font-size: $p-font-size;
+        @include a($dark-gray,$orange);
+       text-decoration: none;
+     }
+    //  Для маленьких екранів робимо мену у стовпчик
+       @media all and (max-width:376px)
+        {
+            flex-direction: column;
+        }
+    
+}
+// Кнопка реєстрації
+.sign_up
+{
+    @include flex();
+    width:102px;
+    height: 40px;
+    color:$white;
+    background-color:$red;
+    border-radius: 8px;
+    // Анімація зміни кольору при наведені
+    &:hover
+    {
+        background-color: $orange;
+        transition: background-color 1s ease;
+    }
+     &:not(hover)
+        {
+          background-color: $red;
+        transition: background-color 1s ease;
+        }
+}
+// Міксін для створення еліпсів
+@mixin ellips($w,$h,$br)
+{
+    
+    width:$w;
+    height:$h;
+    border-radius:$br;
+    border:2px solid $orange;
+    // Для екранів менших за 576px зменшуємо картинки у два рази
+     @media all and (max-width: 576px)
+      {
+        width: $w * 0.5;
+        height: $h * 0.5;
+        border-radius: $br * 0.5;
+       margin-left: 30px;
+      }
+}
+// Міксін для картинок всередені еліпсу
+@mixin img($br)
+{
+    width:100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: $br;
+}
+// Другий рядок меню
+.header_second
+{
+    @include flex();
+    height: 560px;
+    gap:30px;
+    align-items: flex-end;
+    //  Для екранів менших за 1230px зменшуємо відступи між елементами
+    @media all and (max-width: 1230px)
+    {
+        gap:10px;
+    }
+    // Збільшуємо висоту
+     @media all and (max-width: 1186px)
+    {
+    height: 1000px;
+   
+    }
+    // Оскільки картинки зменшилися зменшуємо висоту
+    @media all and (max-width: 576px)
+    {
+        height: 560px;
+        text-align: center;
+ }
+     // Оскільки картинок не видно зменшуємо висоту
+    @media all and (max-width: 376px)
+    {
+        height: 360px;
+        text-align: center;
+ }
+}
+// Перший еліпс та картинка
+.first_ellipse
+{
+    @include ellips(313px,558px ,210px);
+    img
+    {
+        @include img(210px);
+        margin-top: 18px;
+    }
+    @media all and (max-width:1230px)
+   {
+      margin-right: 30px;
+   }
+
+    // Прячемо картинку при невиликій ширині
+    @media all and (max-width:376px)
+      {
+        display: none;
+        }
+}
+// Секція для другого еліпсу, сонечка та картинки
+.section_second_ellipse
+{
+    @include flex();
+    flex-direction: column;
+    // Анімуємо сонечко
+    // Воно буде обертатися
+    svg
+    {
+        animation: 6s linear 0s normal none infinite running rot;
+        // На гаджетах з малим екраном сонечка не буде
+        @media all and (max-width:376px)
+        {
+            display: none;
+        }
+    }
+    // Анімація обертання
+@keyframes rot {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+       
+}
+
+// Другий еліпс
+.second_ellipse
+{
+    @include ellips(193px,344px ,210px);
+    img
+    {
+        @include img(210px);
+        margin-left: -14px;
+    }
+    // Ховаємо для малих екранів
+    @media all and (max-width:376px)
+      {
+        display: none;
+        }
+}
+// Секція з текстом
+.header_text
+{
+    @include flex();
+    flex-direction: column;
+    height: 560px;
+    align-items: stretch;
+    width:660px;
+     // Для екранів менших за 992px зменшуємо ширину
+     @media all and (max-width: 992px)
+      {
+        max-width:660px;
+ }
+//  Ще раз змінюємо ширину і висоту
+    @media all and (max-width:576px)
+      {
+       width:100%;
+       height: 80%;
+    }
+}
+    // Перший рядок з помаранчевим словом та еліпсами
+    .text_first_row
+    {
+        @include flex();
+        // width:660px;
+        justify-content: space-between;
+        svg
+        {
+             @media all and (max-width:576px)
+      {
+        display: none;
+        }
+        
+    }
+    // Заголовок
+    h1
+    {
+        font-family: 'Cormorant Infant';
+        font-size: $h1-font-size;
+        font-weight: 800;
+        align-self: flex-start;
+        width: 478px;
+        // Перше слово
+        span
+        {
+            color:$orange;
+        }
+        // Для екранів менших за 576px зменшуємо шрифт у два рази
+         @media all and (max-width: 576px)
+        {
+            font-size: $h1-font-size * 0.5;
+             width:80%;
+         }
+    }
+    // Синій круг
+    .blue_circle
+    {
+        @include ellips(24px,24px ,24px );
+        background: $blue;
+       border: none;
+       align-self: flex-end; 
+    }
+    p
+    {
+        margin-top: 18px;
+        width: 473px;
+        height: 60px;
+        align-self: space-around;
+        line-height: 1.5;
+      // Для екранів менших за 576px зменшуємо шрифт у два рази
+        @media all and (max-width: 576px)
+        {
+          width:100%;
+          height: 120px;
+        }  
+    }
+
+}
+// Посилання купити зараз
+    .buy_now
+    {
+       display: block;
+       @include a($red,$orange);
+        font-weight: 600;
+      @include font-size($h3-font-size);
+           
+    }

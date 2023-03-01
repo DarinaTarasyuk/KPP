@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="first"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
+  <ion-toolbar>
+    <ion-title>
+      Лабораторна робота №2
+    </ion-title>
+  </ion-toolbar>
+ 
+  <ion-toolbar>
+    <ion-title>
+      Виконала Тарасюк Д.О. КН-32
+    </ion-title>
+ </ion-toolbar>
+ 
+ <ion-toolbar>
+  <ion-title>
+    Варіант 24
+  </ion-title>
+ </ion-toolbar> 
+ 
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Створити додаток для табулювання і виведення на екран значення
+        функції, також побудувати графік функції.</p>
+      <ion-item>
+        <ion-label position="stacked">Початкове значення xn</ion-label>
+        <ion-input type="number" id="xn" placeholder="-2.7" [(ngModel)]="Inputxn"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Кінцеве значення xk</ion-label>
+        <ion-input type="number" id="xk" placeholder="10.5" [(ngModel)]="Inputxk"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Константа а</ion-label>
+        <ion-input type="number" id="а" placeholder="1" [(ngModel)]="Inputa"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Крок h</ion-label>
+        <ion-input type="number" id="h" placeholder="0.75" [(ngModel)]="Inputh"></ion-input>
+      </ion-item>
+      
+      <ion-button expand="block" (click)="graph(Inputxn, Inputxk, Inputa, Inputh)">Розрахунок</ion-button>
+      
+      <ion-item>
+        <canvas #lineCanvas></canvas> 
+      </ion-item>
+
+      <ion-item *ngFor="let item of data1">{{item}}</ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

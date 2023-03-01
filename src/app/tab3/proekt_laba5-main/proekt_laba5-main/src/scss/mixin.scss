@@ -1,0 +1,82 @@
+@import 'main';
+// Міксін для флексів
+@mixin flex
+{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap:$gap;
+ flex-wrap: wrap;
+//  Для екранів менших за 1220px зменшуємо відступи між елементами
+ @media all and (max-width: 1220px)
+ {
+    gap:10px;
+ }
+}
+// Оформлення посилань
+@mixin a($c1,$c2)
+{
+         color:$c1;
+         font-weight: 500;
+         text-decoration: underline;
+         &:hover
+        {
+            color:$c2;
+            transition: color 1s ease;
+        }
+        // плавна зміна кольору без наведення
+        &:not(hover)
+        {
+            color:$c1;
+            transition: color 1s ease;
+        }
+}
+// Кнопки
+@mixin button($w,$h)
+{
+    @include flex();
+    background-color: $red;
+    color:$white;
+    width: $w;
+    height: $h;
+    border-radius: $h - 6px;
+      @include font-size($p-font-size);
+    //  Для екранів менших за 680px зменшуємо розміри
+ @media all and (max-width: 680px)
+ {
+    width: $w * 0.6;
+    height: $h*0.6;
+ }
+
+}
+// Input
+@mixin input($w,$h)
+{
+    width:$w;
+    height: $h;
+    padding: 0.375rem 0.75rem;
+    line-height: 1.5;
+    color:$dark-gray;
+    font-size: $p-font-size;
+    background-color: $orange;
+    border: none;
+    border-bottom: 1px solid #bdbdbd;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+    margin-left: 10px;
+     @media all and (max-width: 680px)
+ {
+    width:$w * 0.6;
+ 
+ }
+}
+@mixin font-size ($fz)
+{
+    font-size: $fz;
+            //  Для екранів менших за 680px зменшуємо розміри
+ @media all and (max-width: 680px)
+ {
+    font-size:$fz * 0.6;
+ 
+ }
+}

@@ -1,0 +1,49 @@
+main.content
+ article 
+  section.flowers_template 
+    div.flowers_template_box
+      div.flowers_template_box__text 
+        h3 Прованс
+        p 7 кремових троянд, 2 гілки білої і рожевої еустоми, зелень
+        a(href="#") Купити
+      img(src=require('./images/buket1.jpg') alt="Flowers")
+    div.flowers_template_box
+      div.flowers_template_box__text 
+        h3 Біла королева
+        p 11 білих троянд, 3 орхідеї
+        a(href="#") Купити
+      img(src=require('./images/buket2.jpg') alt="Flowers") 
+    div.flowers_template_box
+      div.flowers_template_box__text 
+        h3 Чарівний
+        p 9 гілок гіпсофіл
+        a(href="#") Купити
+      img(src=require('./images/buket3.jpg') alt="Flowers") 
+ article.flowers
+  h2 Створення власного букету
+  form
+    fieldset 
+      legend Додати квіти
+      label Квітка
+        select(name="flower" id="flower")
+          option Квітка1
+          option Квітка2
+      label Кількість
+        input(type="number" name="flower_count" id="flower_count" min="0" max="50" value="5") 
+      h3 Вартість
+      button(type="submit") Додати до букету
+    fieldset 
+      legend Додати аксесуари
+      label Аксесуар
+        select(name="aks" id="akc")
+          option Аксесуар1
+          option Аксесуар2
+      label Кількість
+        input(type="number" name="aks_count" id="aks_count" min="0" max="50" value="5") 
+      h3 Вартість
+      button(type="submit") Додати до букету
+  h2 Букет
+  h3 Квітка та кількість
+  h3 Загальна
+  a(href="#").buy_now Купити зараз
+  

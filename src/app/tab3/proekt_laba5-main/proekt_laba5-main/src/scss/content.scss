@@ -1,0 +1,137 @@
+@import 'mixin';
+$pink-box:#FFEEF1;
+
+// Параметри секції з контентом
+.content
+{
+    height: 980px;
+    // / Для екранів менших за 1260px збільшуємо висоту
+    // Оскільки картки вже в два ряди
+     @media all and (max-width: 1260px)
+      {
+        height: 1200px;
+      }
+          // / Для екранів менших за 810px збільшуємо висоту
+    // Оскільки картки вже в 3 ряди
+     @media all and (max-width: 810px)
+      {
+        height: 1400px;
+      }
+}
+
+// Секція з шаблонами букетів
+.flowers_template
+{
+    @include flex();
+
+}
+// Картка з букетом
+.flowers_template_box
+{
+     @include flex();
+    background: $pink-box;
+    width:400px;
+    height: 220px;
+    // Для екранів менших за 410px зменшуємо ширину картки
+     @media all and (max-width: 410px)
+      {
+        width: 300px;
+      }
+    // Заголовок
+    h3
+    {
+        font-size: $h3-font-size;
+        font-family: 'Cormorant Infant';
+        font-weight: 600;
+        line-height: 30px;
+        text-align: center;
+    }
+    // Зображення
+    img
+    {
+        width:144px;
+        height: 180px;
+        object-fit: cover;
+            // Для екранів менших за 410px зменшуємо ширину зображення
+     @media all and (max-width: 410px)
+      {
+        width: 90px;
+        height: 100px;
+      }
+    }
+    // Блок з написами
+    .flowers_template_box__text
+    {
+        @include flex();
+        flex-direction: column;
+        width: 50%;
+        // Текст
+        p
+        {
+            font-size: $p-font-size-small;
+            color:$gray;
+            text-align: center;
+        }
+        // Посилання
+        a
+        {
+            @include a($dark-gray,$red);
+            
+        }
+    }
+}
+// Секція стоврення власного букету
+.flowers
+{
+    @include flex();   
+    flex-direction: column;
+    height: 710px;
+    background: $orange;
+    margin-top: $margin;
+    h2
+    {
+       font-family: 'Cormorant Infant';
+       @include font-size($h2-font-size);
+    }
+    h3
+    {
+      @include font-size($h3-font-size);
+    }
+    form
+    {
+      @include flex();
+     
+      fieldset
+      {
+       @include flex();
+       border: 1px solid #bdbdbd;
+       padding:20px 20px 20px 20px;
+       border-radius: 5%;
+       legend
+       {
+        font-family: 'Cormorant Infant';
+         @include font-size($h3-font-size);
+       }
+      }
+      input
+      {
+        @include input(200px,50px);
+        @include font-size($p-font-size);
+      }
+      select
+      {
+        @include input(200px,50px);
+        @include font-size($p-font-size);
+      }
+      label
+      {
+         @include font-size($h3-font-size);
+        // font-weight: 800;
+      }
+    }
+    button
+    {
+      @include button(186px,56px);
+    }
+
+}

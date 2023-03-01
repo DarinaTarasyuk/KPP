@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="first"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
+  <ion-toolbar>
+    <ion-title>
+      Лабораторна робота №1
+    </ion-title>
+  </ion-toolbar>
+ 
+  <ion-toolbar>
+    <ion-title>
+      Виконала Тарасюк Д.О. КН-32
+    </ion-title>
+ </ion-toolbar>
+ 
+ <ion-toolbar>
+  <ion-title>
+    Варіант 4
+  </ion-title>
+ </ion-toolbar> 
+ 
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання №3</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Згенерувати матрицю розміром NxN. Знайти суму кожного рядка
+        матриці. Виокремити рядки за допомогою кольору</p>
+      <ion-item>
+        <ion-label position="stacked">Розмір матриці</ion-label>
+        <ion-input type="number" id="a" placeholder="1" [(ngModel)]="Inputa"></ion-input>
+      </ion-item>
+      
+      <ion-button expand="block" (click)="create_array(Inputa)">Розрахунок</ion-button>
+      
+      <ion-item>
+        <ion-grid [fixed]="true">
+          <ion-row *ngFor="let i of arr" [ngStyle]="{backgroundColor:getColor(i)}">
+            <ion-col *ngFor="let item of i">{{item}}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Лабораторна робота №1</ion-title>
+  </ion-toolbar>
+</ion-footer>

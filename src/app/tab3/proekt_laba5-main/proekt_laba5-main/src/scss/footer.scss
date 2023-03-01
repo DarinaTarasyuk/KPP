@@ -1,0 +1,90 @@
+@import 'mixin';
+footer
+{
+    height: 686px;
+    background-color:$black;
+    color:$white;
+    @include font-size($p-font-size);
+    @include flex();
+    flex-direction: column;
+      h2
+    {
+       font-family: 'Cormorant Infant';
+       @include font-size($h2-font-size);
+    }
+        h3
+    {
+       font-family: 'Cormorant Infant';
+       @include font-size($h3-font-size + 6px);
+    }
+    p
+    {
+        opacity: 80%;
+    }
+    form
+    {
+      @include flex();
+     flex-direction: column;
+    
+      
+      input
+      {
+        @include input(400px,50px);
+        background-color: $black;
+        color: $white;
+        @include font-size($p-font-size);
+      }
+      button
+    {
+      @include button(186px,56px);
+    }
+    }
+
+}
+@mixin column()
+{
+            @include flex();
+            gap:10px;
+            flex-direction: column;
+            align-items: flex-start;
+}
+.article_footer
+{
+        @include flex();
+        align-items: flex-start;
+        width: 90%;
+        margin-top: $margin;
+        .logo_text
+        {
+            @include column();
+            margin-left: $margin;
+          
+        }
+        .logo
+        {
+            span:nth-child(1)
+            {
+                color:$white;
+            }
+        }
+        .footer_menu
+        {
+            @include column();
+             margin-left: $margin;
+            
+      a
+     {
+        font-family: 'Noto sans';
+        @include font-size($p-font-size);
+        @include a($white,$orange);
+       text-decoration: none;
+       opacity: 80%;
+     }
+     
+    }
+    .address
+     {
+         @include column();
+        margin-left: $margin;
+     }
+}

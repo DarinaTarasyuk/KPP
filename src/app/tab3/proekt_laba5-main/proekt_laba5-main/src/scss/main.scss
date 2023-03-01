@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,400;1,500&family=Spectral:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Infant&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap');
+// Кольори
+$black: #0A0C14;
+$gray: #545465;
+$dark-gray:#2A2940;
+$pink: #FFF8F8;
+$orange:#FFA41C;
+$red:#FE0000;
+$white:#FFFFFF;
+$blue:#A1B5FA;
+// Розміри
+$width:1440px;
+$header-hegth:740px;
+$footer-heigth:786px;
+$content-heigth:994px;
+// Розміри шрифтів
+$p-font-size: 18px;
+$p-font-size-large: 20px;
+$p-font-size-small: 16px;
+$h1-font-size: 72px;
+$h2-font-size:48px;
+$h3-font-size: 24px;
+// відступи
+$margin:50px;
+$gap:30px;
+$margin-left:40px;
+
+html {
+  font-size: $p-font-size;
+  color: $gray;
+  background-color: $pink;
+}
+body
+{
+  max-width: 1440px;
+  margin:auto;
+
+ font-family: 'Noto Sans';
+ color: $dark-gray;
+}
