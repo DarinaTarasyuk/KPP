@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="first"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
+  <ion-toolbar>
+    <ion-title>
+      Лабораторна робота №3
+    </ion-title>
+  </ion-toolbar>
+ 
+  <ion-toolbar>
+    <ion-title>
+      Виконала Тарасюк Д.О. КН-32
+    </ion-title>
+ </ion-toolbar>
+ 
+ <ion-toolbar>
+  <ion-title>
+    Варіант 8
+  </ion-title>
+ </ion-toolbar> 
+ 
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Необхідно обробити JSON файл про рейтинг успішності студентів, 
+        отриманий з серверу. Позначити кольором студентів, середній бал яких введений у форму.</p>
+      <ion-item>
+        <ion-label position="stacked">Середній бал студента:</ion-label>
+        <ion-input type="number" id="x" placeholder="80" [(ngModel)]="Inputx"></ion-input>
+      </ion-item>
+      
+      <ion-button expand="block" (click)="load(Inputx)">Завантажити</ion-button>
+      
+      <ion-item> 
+        <ion-list>
+          <ion-item button *ngFor= "let item of data_user; index as i" (click) = "toggleDetails(i)"> 
+          <ion-label *ngIf = "!showDetails[i]" text-wrap>
+            <p [ngStyle]="{color:getGreen(item.score, x)}"> 
+              <span><b>{{item.name}} </b></span>, {{item.group}} 
+            </p>
+          </ion-label>
+
+          <ion-text *ngIf = "showDetails[i]">
+            <p [ngStyle]="{color:getGreen(item.score, x)}"><b>Ім'я та прізвище:</b> {{item.name}} </p> 
+            <p><b>Група:</b> {{item.group}} </p> 
+            <p><b>Середній бал:</b> {{item.score}}</p>  
+            <p><b>Стипендія:</b> {{item.stipend}} </p> 
+          </ion-text>
+          </ion-item>
+        </ion-list>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
