@@ -55,34 +55,43 @@ export class GraphPage implements OnInit {
   }
 
   graph(xn:string ="-2.7", xk:string ="10.5", a:string="1", h:string="0.75"){
-    this.data1=[];
-    this.xn = parseFloat(xn);
-    this.xk = parseFloat(xk);
-    this.a = parseFloat(a);
-    this.h = parseFloat(h);
-    let x: number, y:number, i:number = 0;
-    x = this.xn;
-    this.xx = new Array();
-    this.yy= new Array();
+    try {
+      this.data1=[];
+      this.xn = parseFloat(xn);
+      this.xk = parseFloat(xk);
+      this.a = parseFloat(a);
+      this.h = parseFloat(h);
+      let x: number, y:number, i:number = 0;
+      x = this.xn;
+      this.xx = new Array();
+      this.yy= new Array();
 
-    while (x <= this.xk){
-      if (x<=0){
-        y = Math.pow(x,4)+2*Math.pow(x,3) - x;
-      } 
-      else {
-        if (x<=this.a){
-          y = 1,3* Math.sqrt(4+x*x);
-        }
-        else {
-          y = Math.abs(x+1); // змінила функцію, бо дуже великі значення 
-        }
+      if ((isNaN(this.xn)==true)||(isNaN(this.xk)==true)||(isNaN(this.h)==true)||(isNaN(this.a)==true)){
+        throw new Error ('Parameter is not a number!');
       }
-      this.xx.push (x.toFixed(1));
-      this.yy.push(parseFloat(y.toFixed(1)));
-      let s = "x = " + x.toFixed(1) + "   y = " + y.toFixed(1);
-      this.data1.push(s);
-      x = x + this.h;
+
+      while (x <= this.xk){
+        if (x<=0){
+          y = Math.pow(x,4)+2*Math.pow(x,3) - x;
+        } 
+        else {
+          if (x<=this.a){
+            y = 1,3* Math.sqrt(4+x*x);
+          }
+          else {
+            y = Math.abs(x+1); // змінила функцію, бо дуже великі значення 
+          }
+        }
+        this.xx.push (x.toFixed(1));
+        this.yy.push(parseFloat(y.toFixed(1)));
+        let s = "x = " + x.toFixed(1) + "   y = " + y.toFixed(1);
+        this.data1.push(s);
+        x = x + this.h;
+      }
+      this.lineChartMethod();
     }
-    this.lineChartMethod();
+    catch (error){
+      console.log(error);
+    }
   }
 }
