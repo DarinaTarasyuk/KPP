@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="first"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
+  <ion-toolbar>
+    <ion-title>
+      Лабораторна робота №4
+    </ion-title>
+  </ion-toolbar>
+ 
+  <ion-toolbar>
+    <ion-title>
+      Виконала Тарасюк Д.О. КН-32
+    </ion-title>
+ </ion-toolbar>
+ 
+ <ion-toolbar>
+  <ion-title>
+    Варіант 8
+  </ion-title>
+ </ion-toolbar> 
+ 
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Скласти програму з абстрактним батьківським класом і двома
+        об'єктами – нащадками. Реалізувати циклічне виведення параметрів об'єктів, використовуючи 
+        поліморфний контейнер - масив об'єктів базового класу. Виконати обрахунки відповідно до варіанту. </p>
+
+      <p>Варіант: батьківський клас - птиця (поле "назва"), нащадки - лелека (поле L - розмах крил) та ворона (поле L - висота). Метод - кількість їжі в день.
+        Знайти кількість їжі, необхідної лелекам і кількість їжі, необхідної воронам.
+      </p>
+      <ion-item>
+        <ion-label position="stacked">Кількість елементів:</ion-label>
+        <ion-input type="number" id="x" placeholder="5" [(ngModel)]="Inputx"></ion-input>
+      </ion-item>
+      
+      <ion-button expand="block" (click)="count(Inputx)">Розрахунок</ion-button>
+      
+      <ion-item *ngFor="let b of bird">{{b.show()}}</ion-item>
+      <p> Кількість їжі для лелек: {{food_leleka.toFixed(2)}} </p>
+      <p> Кількість їжі для ворон: {{food_vorona.toFixed(2)}} </p>
+                 
+    </ion-card-content>
+  </ion-card>
+</ion-content>

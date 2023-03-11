@@ -22,7 +22,7 @@ export class FilePage implements OnInit {
   ngOnInit() {
   }
 
-  async load (x:string = '80'){ //функція зчитування
+  async load (x:string = '85'){ //функція зчитування
     
     this.data = [];
     this.data_user = [];
@@ -53,7 +53,7 @@ export class FilePage implements OnInit {
       this.data = json;
       this.data = this.data.record;
       let i = 0;
-      console.log (this.data);
+     console.log (this.data);
       while (this.data[i] != undefined) {
         this.data_user.push(this.data[i][0]);
         i++;

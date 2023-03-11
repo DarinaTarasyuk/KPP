@@ -24,7 +24,10 @@ export class GraphPage implements OnInit {
   yy: number[] = [];
   data1: string[] = [];
   
-  constructor() { Chart.register(...registerables) }
+  constructor() { 
+    Chart.register(...registerables) 
+  }
+
   ngOnInit() {
   }
 
@@ -37,17 +40,17 @@ export class GraphPage implements OnInit {
 
     // створення нового графіка
     this.lineChart = new Chart(this.lineCanvas?.nativeElement, {
-      type:'line', //лінійний графік
-      data: { // основні дані
-        labels: this.xx, // значення осі х
-        datasets: [ // властивості datasets
+      type:'line', //тип - лінійний графік
+      data: { // параметри графіка
+        labels: this.xx, // точки осі х
+        datasets: [ // властивості, що створюють графік
           {
             label: 'Графік функції', //підпис
             //налаштування виведення
             fill:false, // заповнення області під лінією
-            borderColor: 'rgba(75,192,192,1)',
-            pointRadius: 1, //радуіс точки
-            data: this.yy, // дані по осі у
+            borderColor: 'rgba(75,192,192,1)', //колір
+            pointRadius: 1, //радіус точки
+            data: this.yy, // точки осі у
           }
         ]
       }
@@ -79,7 +82,7 @@ export class GraphPage implements OnInit {
             y = 1,3* Math.sqrt(4+x*x);
           }
           else {
-            y = Math.abs(x+1); // змінила функцію, бо дуже великі значення 
+            y = Math.abs(x+1); // змінила функцію, бо дуже великі значення Math.pow(Math.abs(x+1),x)
           }
         }
         this.xx.push (x.toFixed(1));
