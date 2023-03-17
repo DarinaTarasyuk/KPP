@@ -8,10 +8,11 @@ import {Vorona} from "./Class/Vorona";
   templateUrl: './abstract-class.page.html',
   styleUrls: ['./abstract-class.page.scss'],
 })
+
 export class AbstractClassPage implements OnInit {
   
   bird:Bird[] = []; //поліморфний контейнер
-  food_leleka:number =0;
+  food_leleka:number = 0;
   food_vorona:number = 0;
   Inputx!:string;
 
@@ -38,6 +39,7 @@ export class AbstractClassPage implements OnInit {
     )
 
   }
+  
   ngOnInit() {
   }
 
