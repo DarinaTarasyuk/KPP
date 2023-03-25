@@ -1,0 +1,43 @@
+<app-my-header name="Лабораторна робота №6" variant="Варіант 9"> </app-my-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Розробити ієрархію класів: іграшка, продукт, товар, молочний продукт. Можна додавати класи 
+        або інтерфейси, а також робити їх абстрактними. Кожен клас повинен реалізувати як мінімум
+        два інтерфейси та два методи.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Інформація про екземпляри класу Toy </ion-card-title>
+    </ion-card-header>
+
+      <ion-card-content>
+      <ion-label position="stacked">Введіть вік дитини:</ion-label>
+      <ion-input type="number" id="x" placeholder="5" [(ngModel)]="Inputx"></ion-input>
+      <ion-button (click)="info_toy(Inputx)">Дізнатись</ion-button>
+      <ion-item> {{show_toy}} </ion-item>
+      <ion-item> {{show_age_toy}} </ion-item>
+    </ion-card-content>
+  </ion-card>
+   
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Інформація про екземпляри класу DairyProduct </ion-card-title>
+    </ion-card-header>
+    
+      <ion-card-content>
+      <ion-button (click)="info_dproduct()">Дізнатись</ion-button>
+      <ion-item> {{show_dproduct}} </ion-item>
+      <ion-item> {{show_status}} </ion-item>
+      <ion-item> {{show_discouted}} </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

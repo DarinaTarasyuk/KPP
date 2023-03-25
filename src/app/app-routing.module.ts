@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path: 'tests',
     loadChildren: () => import('./tests/tests.module').then( m => m.TestsPageModule)
+  },
+  {
+    path: 'interfacepage',
+    loadChildren: () => import('./interfacepage/interfacepage.module').then( m => m.InterfacepagePageModule)
   }
 ];
 @NgModule({
