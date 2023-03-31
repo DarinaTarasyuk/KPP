@@ -1,7 +1,7 @@
 import { DairyProduct } from "./DairyProduct";
 //npm test
 //обгортка
-describe ('Lelka Testing', ()=> {
+describe ('DairyProduct Testing', ()=> {
     let milk:DairyProduct; // створення екземпляру
     let date = new Date (2023, 3, 31);
     beforeEach(()=>{ //код що виконується перед spec
@@ -32,10 +32,10 @@ describe ('Lelka Testing', ()=> {
                 f2=milk.price;
                 break;
             case "Термін придатності закінчується":
-                f2=milk.price*0.25;
+                f2=milk.price*0.75;
                 break;
             case "Термін придатності закінчився":
-                f2=milk.price*0.75;
+                f2=milk.price*0.25;
                 break;
             default:f2=milk.price;
         }
