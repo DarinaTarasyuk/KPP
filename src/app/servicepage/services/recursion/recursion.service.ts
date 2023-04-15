@@ -20,6 +20,7 @@ export class RecursionService {
     sum= sum + mem;
     if(mem>min || mem <-min) this.getRecursion(x,mem,fact,f,n,sum);
     else this.yy = sum;
+    return this.yy;
   }
   
   getTab (xn:number, xk:number, h:number):Map<number,number>

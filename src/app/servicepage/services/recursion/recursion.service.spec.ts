@@ -18,8 +18,8 @@ describe('RecursionService', () => {
     let x = 3;
     let y = Math.exp(x);
     let xy= service.getTab(-9.5, 9.5, 0.5);
-    let data = {yy:1};
-    service.getRecursion(x,1,1,1,0,data);
-    expect(y.toFixed(2)).toBe(data.yy.toFixed(2));
+    let y1 = 1;
+    y1 = service.getRecursion(x,1,1,1,0,y1);
+    expect(y.toFixed(2)).toBe(y1.toFixed(2));
   });
 });

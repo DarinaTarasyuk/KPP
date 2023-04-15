@@ -29,6 +29,10 @@ const routes: Routes = [
   {
     path: 'servicepage',
     loadChildren: () => import('./servicepage/servicepage.module').then( m => m.ServicepagePageModule)
+  },
+  {
+    path: 'formspage',
+    loadChildren: () => import('./formspage/formspage.module').then( m => m.FormspagePageModule)
   }
 ];
 @NgModule({

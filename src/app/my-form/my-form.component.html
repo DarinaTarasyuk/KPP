@@ -1,0 +1,51 @@
+<form [formGroup]="goodsForm" (ngSubmit)="OnSubmit()"> 
+  <ion-card>
+      <ion-card-header>
+        <ion-card-title>Форма</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Назва товару</ion-label>
+          <ion-input id="good-name" type="text" formControlName="goodName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Кількість на складі</ion-label>
+          <ion-input id="good-сount" type="number" formControlName="goodCount"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Одиниця виміру</ion-label>
+          <ion-input id="good-unit" type="text" formControlName="goodUnit"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Ціна</ion-label>
+          <ion-input id="good-price" type="number" formControlName="goodPrice"></ion-input>
+        </ion-item>
+      
+        <ion-card formArrayName="manufacturer">
+          <ion-card-header>
+            <ion-card-title>Список виробників товару</ion-card-title>
+          </ion-card-header>
+          
+          <ion-card-content>
+            <ion-button (click)="addManuf()">
+              <ion-icon slot="start" name="add"></ion-icon>
+              Додати виробника
+            </ion-button>
+
+            <ion-item *ngFor="let book of getControls(); let i=index">
+              <ion-input type="text" formControlName={{i}} placeholder="Назва виробника"> </ion-input>
+              <ion-button (click)="deleteManuf(i)">
+                <ion-icon slot="start" name="trash"></ion-icon>
+                Видалити
+              </ion-button>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-card-content>
+  </ion-card>
+
+  <ion-button type="submit" expand="block" fill="outline" [disabled]="!goodsForm.valid">
+  Submit
+  </ion-button>
+</form>
