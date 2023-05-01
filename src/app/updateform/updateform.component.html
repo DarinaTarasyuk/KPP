@@ -1,0 +1,34 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>
+      <ion-label position="floating">Товар</ion-label>
+
+    </ion-card-title>
+  </ion-card-header>
+  
+  <ion-card-content>
+    <ion-item>
+      <ion-label position="floating">Назва товару</ion-label>
+      <ion-input [value]="good.name" #Inputn></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Кількість на складі</ion-label>
+      <ion-input [value]="good.count" #Inputc></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Одиниця виміру</ion-label>
+      <ion-input [value]="good.unit" #Inputu></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Ціна</ion-label>
+      <ion-input [value]="good.price" #Inputp></ion-input>
+    </ion-item>
+    
+    <!-- <ion-item>
+      <ion-label position="floating">Список виробників товару</ion-label>
+      <ion-textarea [value]="good.manufacturer" #Inputm></ion-textarea>
+    </ion-item> -->
+
+  </ion-card-content>
+  <ion-button (click)="save(Inputn.value, Inputc.value, Inputu.value, Inputp.value)">Зберегти </ion-button>
+</ion-card>

@@ -14,6 +14,9 @@ import { MyHeaderModule } from '../my-header/my-header.component.module';
 
 import { MyFormComponent } from '../my-form/my-form.component';
 
+import { ViewformComponent } from '../viewform/viewform.component';
+
+import { UpdateformComponent} from '../updateform/updateform.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -24,6 +27,6 @@ import { MyFormComponent } from '../my-form/my-form.component';
     MyHeaderModule,
     
   ],
-  declarations: [FormspagePage,MyFormComponent]
+  declarations: [FormspagePage,MyFormComponent, ViewformComponent, UpdateformComponent]
 })
 export class FormspagePageModule {}

@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Good } from './Class/goods';
 import { Validators } from '@angular/forms';
 import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms';
 import { priceValidator } from './Services/priceValidator';
 import { ValidatorCountService } from './Services/validatorCount.service';
 import { AlertController } from '@ionic/angular';
-
+import { EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-my-form',
   templateUrl: './my-form.component.html',
@@ -13,8 +13,10 @@ import { AlertController } from '@ionic/angular';
 })
 export class MyFormComponent implements OnInit {
   //не присвоєне значення, тобто змінна underfined
+  
   goodsForm!: FormGroup;
   goods!:Good;
+  @Output() GoodAdd: EventEmitter<Good> = new EventEmitter<Good>();  
   
   constructor(private fb: FormBuilder, private alertController: AlertController) { 
     this.goodsForm = this.fb.group({
@@ -56,8 +58,11 @@ export class MyFormComponent implements OnInit {
       this.goods = new Good(name,count,unit, price, manuf)
       console.log("Submit");
       console.log(this.goods);
+      this.GoodAdd.emit(this.goods);
+
     }
     else this.presentAlert();
+
   }
 
   async presentAlert(){

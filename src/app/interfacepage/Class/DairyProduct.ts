@@ -1,7 +1,6 @@
 import { IGood } from "../Interface/IGood";
 import { Product } from "./Product";
 import { IShow } from "../Interface/IShow";
-
 export class DairyProduct extends Product implements IShow{
     fat:number;
 

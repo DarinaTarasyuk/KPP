@@ -1,0 +1,19 @@
+<app-my-form (GoodAdd) = "addGood($event)"> </app-my-form> 
+
+<ion-card *ngFor="let good of goods; let i=index">
+    <ion-card-header>
+      <ion-card-title> {{good.name}} </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p> Кількість: {{good.count}} {{good.unit}} </p>
+      <p> Ціна: {{good.price}} грн. </p>
+      <P> Виробники: </P>
+      <ion-item *ngFor="let manuf of good.manufacturer" >
+        {{manuf}}
+      </ion-item>
+    </ion-card-content>
+    <ion-button (click)="update()">Редагувати</ion-button>
+    <app-updateform [good]="good" [show]="show_update" *ngIf="show_update" 
+    (showChange)="showUp($event)" (goodChange)="update_save($event,i)"></app-updateform>
+  </ion-card>
+  
