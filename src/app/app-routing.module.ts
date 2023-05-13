@@ -33,6 +33,10 @@ const routes: Routes = [
   {
     path: 'formspage',
     loadChildren: () => import('./formspage/formspage.module').then( m => m.FormspagePageModule)
+  },
+  {
+    path: 'observablepage',
+    loadChildren: () => import('./observablepage/observablepage.module').then( m => m.ObservablepagePageModule)
   }
 ];
 @NgModule({

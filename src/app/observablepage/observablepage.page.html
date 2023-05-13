@@ -1,0 +1,58 @@
+<app-my-header name="Лабораторна робота №9" variant="Варіант 8"> </app-my-header> 
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Завдання </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p> Необхідно додати сторінку для роботи з сервісами.
+        	Розробити сервіс для спостерігання за значенням у довіднику 
+          видів товарів та список товарів</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-item> 
+      <ion-label>
+        Поточний вид: {{type.name}}
+      </ion-label>
+      <ion-label>
+      </ion-label>
+      <ion-button (click)="nextType()">Наступний вид товарів</ion-button>
+    </ion-item>
+
+    <ion-item *ngFor="let good of goodList.searchGoodResult; let j = index">
+      {{good}}
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">Введіть новий вид товарів:</ion-label>
+      <ion-input #InputType></ion-input>
+      <ion-button (click)="addType(InputType.value)">Додати</ion-button>
+    </ion-item>
+  </ion-card>
+  
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-header>
+        Додати товар
+      </ion-card-header>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label position="stacked">Введіть назву:</ion-label>
+      <ion-input #InputName></ion-input>
+      <ion-label position="stacked">Введіть виробника:</ion-label>
+      <ion-input #InputManuf></ion-input>
+      <ion-label position="stacked">Введіть кількість:</ion-label>
+      <ion-input #InputCount></ion-input>
+      <ion-label position="stacked">Введіть ціну:</ion-label>
+      <ion-input #InputPrice></ion-input>
+      <ion-label position="stacked">Введіть дату придатності:</ion-label>
+      <ion-input #InputDate></ion-input>
+      <ion-button (click)="addGood(InputName.value,InputManuf.value, InputCount.value, InputPrice.value, InputDate.value)">Додати</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
