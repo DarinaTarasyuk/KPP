@@ -37,6 +37,10 @@ const routes: Routes = [
   {
     path: 'observablepage',
     loadChildren: () => import('./observablepage/observablepage.module').then( m => m.ObservablepagePageModule)
+  },
+  {
+    path: 'observablepage-db',
+    loadChildren: () => import('./observablepage-db/observablepage-db.module').then( m => m.ObservablepageDbPageModule)
   }
 ];
 @NgModule({

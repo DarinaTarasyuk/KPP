@@ -1,4 +1,4 @@
-<app-my-header name="Лабораторна робота №10" variant="Варіант 8"> </app-my-header> 
+<app-my-header name="Лабораторна робота №11" variant="Варіант 8"> </app-my-header> 
 
 <ion-content [fullscreen]="true">
   <ion-card>
@@ -7,24 +7,30 @@
     </ion-card-header>
 
     <ion-card-content>
-      <p> Необхідно додати сторінку для роботи з сервісами.
-        	Розробити сервіс для спостерігання за значенням у довіднику 
-          видів товарів та список товарів</p>
+      <p> Необхідно змінити лабораторну роботу № 10 додавши наступні
+        функціональні можливості;
+      <ol>
+        <li>Збереження даних у БД FireBase</li>
+        <li>Зчитування даних з БД у застосунку</li>
+        <li>Відображення даних</li>
+        <li>Додавання даних</li>
+      </ol>
     </ion-card-content>
   </ion-card>
 
   <ion-card>
     <ion-item> 
-      <ion-label>
-        Поточний вид: {{type.name}}
-      </ion-label>
-      <ion-label>
-      </ion-label>
+      <ion-label> Поточний вид: {{type.name}} </ion-label>
+      <ion-label> </ion-label>
       <ion-button (click)="nextType()">Наступний вид товарів</ion-button>
     </ion-item>
 
-    <ion-item *ngFor="let good of goodList.searchGoodResult; let j = index">
-      {{good}}
+    <ion-item *ngFor="let good of goodList.searchGood; let j = index">
+      <ion-item>{{good.name}} </ion-item>
+      <ion-item>{{good.manuf}} </ion-item>
+      <ion-item>{{good.count}} </ion-item>
+      <ion-item>{{good.price}} </ion-item>
+      <ion-item>{{good.date}} </ion-item>
     </ion-item>
   
     <ion-item>
